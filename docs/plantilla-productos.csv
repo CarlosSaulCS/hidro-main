@@ -1,0 +1,4 @@
+Activo,Categoria,Producto,Descripcion,Imagen 1,Imagen 2,Imagen 3,Imagen 4,Imagen 5,Orden
+SI,Agua Potable,Junta Gibault,Producto de ejemplo. Pega aquí los links de Drive de cada foto.,https://drive.google.com/file/d/ID_DE_EJEMPLO_1/view?usp=sharing,https://drive.google.com/file/d/ID_DE_EJEMPLO_2/view?usp=sharing,,,,1
+SI,Drenaje,Broca Sierra,Producto con una sola imagen.,https://drive.google.com/file/d/ID_DE_EJEMPLO_3/view?usp=sharing,,,,,2
+NO,Industria,Producto oculto,Si Activo es NO no aparece en la página.,https://drive.google.com/file/d/ID_DE_EJEMPLO_4/view?usp=sharing,,,,,3

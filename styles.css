@@ -2604,3 +2604,51 @@ html {
     display: none !important;
   }
 }
+
+/* =========================================================
+   CATÁLOGO CON GOOGLE SHEETS + DRIVE
+   ========================================================= */
+.catalogo-loading-state {
+  grid-column: 1 / -1;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 50px 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.catalogo-loading-state h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  color: #27348A;
+  margin-bottom: 10px;
+}
+
+.catalogo-loading-state p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #666;
+}
+
+.catalogo-card-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.45;
+  margin: -6px 0 16px;
+  max-width: 95%;
+}
+
+.catalogo-card-info {
+  gap: 4px;
+}
+
+.catalogo-card-img {
+  background: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .catalogo-card-desc {
+    font-size: 12.5px;
+  }
+}

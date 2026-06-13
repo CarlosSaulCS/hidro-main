@@ -859,6 +859,7 @@
     </footer>
   </div>
   <script src="data/catalogos.js"></script>
+  <script src="data/catalogos-config.js"></script>
   <script>
     const searchBar = document.querySelector('.search-bar');
     const searchDropdown = document.querySelector('.search-dropdown');
@@ -981,7 +982,422 @@
       window.scrollTo(0, 0);
     }
 
-    function showCatalogo(categoryName) {
+    const CATALOGOS_FALLBACK = window.CATALOGOS || {};
+    const CATALOGOS_DEFAULT_CONFIG = {
+      source: 'local', // local | google-sheets | apps-script | auto
+      googleSheetsCsvUrl: '',
+      googleAppsScriptUrl: '',
+      cacheBust: true,
+      fallbackToLocal: true
+    };
+
+    let catalogosPromise = null;
+    let catalogosActivos = null;
+
+    async function getCatalogosActivos() {
+      if (catalogosActivos) return catalogosActivos;
+      if (catalogosPromise) return catalogosPromise;
+
+      const config = {
+        ...CATALOGOS_DEFAULT_CONFIG,
+        ...(window.CATALOGOS_CONFIG || {})
+      };
+
+      catalogosPromise = (async () => {
+        const source = String(config.source || 'local').toLowerCase();
+
+        if (source === 'local') {
+          catalogosActivos = normalizeCatalogosData(CATALOGOS_FALLBACK);
+          return catalogosActivos;
+        }
+
+        try {
+          let remoteData = null;
+
+          if ((source === 'apps-script' || source === 'auto') && config.googleAppsScriptUrl) {
+            remoteData = await fetchCatalogosFromAppsScript(config.googleAppsScriptUrl, config);
+          }
+
+          if (!remoteData && (source === 'google-sheets' || source === 'auto') && config.googleSheetsCsvUrl) {
+            remoteData = await fetchCatalogosFromGoogleSheets(config.googleSheetsCsvUrl, config);
+          }
+
+          const normalized = normalizeCatalogosData(remoteData);
+
+          if (catalogosHasProducts(normalized)) {
+            catalogosActivos = normalized;
+            return catalogosActivos;
+          }
+
+          throw new Error('La fuente remota no devolvió productos válidos.');
+        } catch (error) {
+          console.warn('[HidroPlus] No se pudo cargar el catálogo remoto. Se usará el catálogo local.', error);
+
+          if (config.fallbackToLocal) {
+            catalogosActivos = normalizeCatalogosData(CATALOGOS_FALLBACK);
+            return catalogosActivos;
+          }
+
+          catalogosActivos = createEmptyCatalogos();
+          return catalogosActivos;
+        }
+      })();
+
+      return catalogosPromise;
+    }
+
+    async function fetchCatalogosFromAppsScript(url, config) {
+      const response = await fetch(withCacheBust(url, config), { cache: 'no-store' });
+      if (!response.ok) throw new Error(`Error al leer Apps Script: ${response.status}`);
+      return response.json();
+    }
+
+    async function fetchCatalogosFromGoogleSheets(url, config) {
+      const csvUrl = normalizeGoogleSheetsCsvUrl(url);
+      const response = await fetch(withCacheBust(csvUrl, config), { cache: 'no-store' });
+      if (!response.ok) throw new Error(`Error al leer Google Sheets: ${response.status}`);
+      const csvText = await response.text();
+      return csvToObjects(csvText);
+    }
+
+    function withCacheBust(url, config) {
+      if (!config.cacheBust) return url;
+      const separator = url.includes('?') ? '&' : '?';
+      return `${url}${separator}_=${Date.now()}`;
+    }
+
+    function normalizeGoogleSheetsCsvUrl(url) {
+      const cleanUrl = String(url || '').trim();
+      if (!cleanUrl) return cleanUrl;
+
+      if (cleanUrl.includes('output=csv') || cleanUrl.includes('tqx=out:csv')) {
+        return cleanUrl;
+      }
+
+      const match = cleanUrl.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+      if (!match) return cleanUrl;
+
+      const gidMatch = cleanUrl.match(/[?&#]gid=([0-9]+)/);
+      const gid = gidMatch ? gidMatch[1] : '0';
+
+      return `https://docs.google.com/spreadsheets/d/${match[1]}/gviz/tq?tqx=out:csv&gid=${gid}`;
+    }
+
+    function csvToObjects(csvText) {
+      const rows = parseCSV(csvText);
+      if (!rows.length) return [];
+
+      const headers = rows[0].map(normalizeKey);
+
+      return rows.slice(1)
+        .filter(row => row.some(cell => String(cell || '').trim() !== ''))
+        .map(row => {
+          const item = {};
+          headers.forEach((header, index) => {
+            if (!header) return;
+            item[header] = row[index] || '';
+          });
+          return item;
+        });
+    }
+
+    function parseCSV(csvText) {
+      const rows = [];
+      let row = [];
+      let value = '';
+      let insideQuotes = false;
+
+      for (let i = 0; i < csvText.length; i++) {
+        const char = csvText[i];
+        const nextChar = csvText[i + 1];
+
+        if (char === '"' && insideQuotes && nextChar === '"') {
+          value += '"';
+          i++;
+        } else if (char === '"') {
+          insideQuotes = !insideQuotes;
+        } else if (char === ',' && !insideQuotes) {
+          row.push(value);
+          value = '';
+        } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+          if (char === '\r' && nextChar === '\n') i++;
+          row.push(value);
+          rows.push(row);
+          row = [];
+          value = '';
+        } else {
+          value += char;
+        }
+      }
+
+      row.push(value);
+      rows.push(row);
+
+      return rows;
+    }
+
+    function normalizeCatalogosData(rawData) {
+      if (!rawData) return createEmptyCatalogos();
+
+      if (Array.isArray(rawData)) {
+        return normalizeProductRows(rawData);
+      }
+
+      if (Array.isArray(rawData.products)) {
+        return normalizeProductRows(rawData.products);
+      }
+
+      if (Array.isArray(rawData.productos)) {
+        return normalizeProductRows(rawData.productos);
+      }
+
+      if (rawData.catalogos && typeof rawData.catalogos === 'object') {
+        return normalizeCatalogObject(rawData.catalogos);
+      }
+
+      return normalizeCatalogObject(rawData);
+    }
+
+    function createEmptyCatalogos() {
+      return {
+        'AGUA POTABLE': [],
+        'DRENAJE': [],
+        'INDUSTRIA': [],
+        'SISTEMA DE POZOS': []
+      };
+    }
+
+    function normalizeCatalogObject(catalogObject) {
+      const catalogos = createEmptyCatalogos();
+
+      Object.entries(catalogObject || {}).forEach(([categoryName, products]) => {
+        const category = normalizeCategory(categoryName);
+        if (!category || !Array.isArray(products)) return;
+
+        catalogos[category] = products
+          .map(product => normalizeProduct(product))
+          .filter(product => product.name);
+      });
+
+      return sortCatalogos(catalogos);
+    }
+
+    function normalizeProductRows(rows) {
+      const catalogos = createEmptyCatalogos();
+
+      rows.forEach(row => {
+        const normalizedRow = normalizeRowKeys(row);
+
+        if (isInactive(normalizedRow.activo || normalizedRow.estado || normalizedRow.visible)) return;
+
+        const category = normalizeCategory(
+          normalizedRow.categoria ||
+          normalizedRow.catalogo ||
+          normalizedRow.seccion ||
+          normalizedRow.tipo
+        );
+
+        const name = cleanText(
+          normalizedRow.producto ||
+          normalizedRow.nombre_producto ||
+          normalizedRow.nombre ||
+          normalizedRow.name
+        );
+
+        if (!category || !name) return;
+
+        const product = {
+          name,
+          description: cleanText(
+            normalizedRow.descripcion ||
+            normalizedRow.description ||
+            normalizedRow.detalle ||
+            normalizedRow.descripcion_producto
+          ),
+          images: getImagesFromRow(normalizedRow),
+          order: Number(normalizedRow.orden || normalizedRow.order || 9999)
+        };
+
+        catalogos[category].push(product);
+      });
+
+      return sortCatalogos(catalogos);
+    }
+
+    function normalizeProduct(product) {
+      const normalized = normalizeRowKeys(product || {});
+
+      const name = cleanText(
+        normalized.name ||
+        normalized.nombre ||
+        normalized.producto ||
+        normalized.nombre_producto
+      );
+
+      const description = cleanText(
+        normalized.description ||
+        normalized.descripcion ||
+        normalized.detalle
+      );
+
+      const images = Array.isArray(product.images)
+        ? product.images.map(normalizeImageUrl).filter(Boolean)
+        : getImagesFromRow(normalized);
+
+      return {
+        name,
+        description,
+        images,
+        order: Number(normalized.order || normalized.orden || 9999)
+      };
+    }
+
+    function normalizeRowKeys(row) {
+      return Object.entries(row || {}).reduce((acc, [key, value]) => {
+        acc[normalizeKey(key)] = value;
+        return acc;
+      }, {});
+    }
+
+    function normalizeKey(value) {
+      return String(value || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
+    }
+
+    function normalizeCategory(value) {
+      const category = cleanText(value).toUpperCase();
+
+      const normalized = category
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      if (normalized.includes('AGUA')) return 'AGUA POTABLE';
+      if (normalized.includes('DRENAJE')) return 'DRENAJE';
+      if (normalized.includes('INDUSTRIA')) return 'INDUSTRIA';
+      if (normalized.includes('POZO')) return 'SISTEMA DE POZOS';
+
+      return '';
+    }
+
+    function cleanText(value) {
+      return String(value || '').replace(/\s+/g, ' ').trim();
+    }
+
+    function isInactive(value) {
+      const status = cleanText(value).toLowerCase();
+
+      if (!status) return false;
+
+      return [
+        'no',
+        'false',
+        '0',
+        'inactivo',
+        'inactiva',
+        'oculto',
+        'oculta',
+        'baja'
+      ].includes(status);
+    }
+
+    function getImagesFromRow(row) {
+      const images = [];
+
+      Object.entries(row || {}).forEach(([key, value]) => {
+        const normalizedKey = normalizeKey(key);
+
+        const isImageColumn =
+          normalizedKey === 'imagen' ||
+          normalizedKey === 'imagenes' ||
+          normalizedKey === 'foto' ||
+          normalizedKey === 'fotos' ||
+          normalizedKey === 'img' ||
+          normalizedKey === 'image' ||
+          normalizedKey === 'images' ||
+          normalizedKey.startsWith('imagen_') ||
+          normalizedKey.startsWith('foto_') ||
+          normalizedKey.startsWith('img_') ||
+          normalizedKey.startsWith('image_') ||
+          normalizedKey.startsWith('link_imagen') ||
+          normalizedKey.startsWith('link_foto');
+
+        if (!isImageColumn) return;
+
+        splitImageCell(value).forEach(imageUrl => {
+          const normalizedUrl = normalizeImageUrl(imageUrl);
+          if (normalizedUrl) images.push(normalizedUrl);
+        });
+      });
+
+      return [...new Set(images)];
+    }
+
+    function splitImageCell(value) {
+      return String(value || '')
+        .split(/\n|,|\|/g)
+        .map(item => item.trim())
+        .filter(Boolean);
+    }
+
+    function normalizeImageUrl(url) {
+      const cleanUrl = cleanText(url);
+      if (!cleanUrl) return '';
+
+      const driveFileId = extractDriveFileId(cleanUrl);
+
+      if (driveFileId) {
+        return `https://drive.google.com/thumbnail?id=${driveFileId}&sz=w1200`;
+      }
+
+      return cleanUrl;
+    }
+
+    function extractDriveFileId(url) {
+      const patterns = [
+        /\/file\/d\/([a-zA-Z0-9_-]+)/,
+        /[?&]id=([a-zA-Z0-9_-]+)/,
+        /\/uc\?export=view&id=([a-zA-Z0-9_-]+)/,
+        /\/thumbnail\?id=([a-zA-Z0-9_-]+)/
+      ];
+
+      for (const pattern of patterns) {
+        const match = String(url).match(pattern);
+        if (match && match[1]) return match[1];
+      }
+
+      return '';
+    }
+
+    function sortCatalogos(catalogos) {
+      Object.keys(catalogos).forEach(category => {
+        catalogos[category].sort((a, b) => {
+          const orderA = Number.isFinite(a.order) ? a.order : 9999;
+          const orderB = Number.isFinite(b.order) ? b.order : 9999;
+
+          if (orderA !== orderB) return orderA - orderB;
+
+          return String(a.name || '').localeCompare(String(b.name || ''), 'es', {
+            numeric: true,
+            sensitivity: 'base'
+          });
+        });
+      });
+
+      return catalogos;
+    }
+
+    function catalogosHasProducts(catalogos) {
+      return Object.values(catalogos || {}).some(products => Array.isArray(products) && products.length > 0);
+    }
+
+    async function showCatalogo(categoryName) {
       viewHome.style.display = 'none';
       viewNosotros.style.display = 'none';
       viewCotizaciones.style.display = 'none';
@@ -1011,8 +1427,16 @@
       const gridEl = document.getElementById('catalogo-dynamic-grid');
       if (!gridEl) return;
 
-      const products = (window.CATALOGOS && Array.isArray(window.CATALOGOS[catNameUpper]))
-        ? window.CATALOGOS[catNameUpper]
+      gridEl.innerHTML = `
+        <div class="catalogo-loading-state">
+          <h3>Cargando catálogo...</h3>
+          <p>Estamos preparando los productos de esta sección.</p>
+        </div>
+      `;
+
+      const catalogos = await getCatalogosActivos();
+      const products = (catalogos && Array.isArray(catalogos[catNameUpper]))
+        ? catalogos[catNameUpper]
         : [];
 
       if (!products.length) {
@@ -1027,7 +1451,14 @@
 
       gridEl.innerHTML = products.map((prod) => {
         const productName = escapeHTML(prod.name || 'Producto');
-        const images = getProductImages(prod);
+        const productDescription = cleanText(prod.description || '');
+        const descriptionHTML = productDescription
+          ? `<p class="catalogo-card-desc">${escapeHTML(productDescription)}</p>`
+          : '';
+
+        const images = Array.isArray(prod.images)
+          ? prod.images.map(normalizeImageUrl).filter(Boolean)
+          : getImagesFromRow(prod);
 
         const imageHTML = images.length
           ? images.map((imgSrc, index) => `
@@ -1062,22 +1493,12 @@
             </div>
             <div class="catalogo-card-info">
               <h3>${productName}</h3>
+              ${descriptionHTML}
               <button class="btn-cotizar-catalogo">Cotizar</button>
             </div>
           </div>
         `;
       }).join('');
-    }
-
-    function getProductImages(prod) {
-      const images = [];
-
-      if (Array.isArray(prod.images)) images.push(...prod.images);
-      if (prod.img) images.push(prod.img);
-      if (prod.carouselImg) images.push(prod.carouselImg);
-      if (Array.isArray(prod.carouselImgs)) images.push(...prod.carouselImgs);
-
-      return [...new Set(images.filter(Boolean))];
     }
 
     function escapeHTML(value) {
