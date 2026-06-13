@@ -1,0 +1,25 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded Pixel Circle Shape (Based on Reference) -->
+  <!-- Top/Bottom Edge -->
+  <rect x="8" y="4" width="8" height="2" fill="currentColor"/>
+  <rect x="8" y="18" width="8" height="2" fill="currentColor"/>
+  
+  <!-- Side Edges -->
+  <rect x="4" y="8" width="2" height="8" fill="currentColor"/>
+  <rect x="18" y="8" width="2" height="8" fill="currentColor"/>
+  
+  <!-- Corners -->
+  <rect x="6" y="6" width="2" height="2" fill="currentColor"/>
+  <rect x="16" y="6" width="2" height="2" fill="currentColor"/>
+  <rect x="6" y="16" width="2" height="2" fill="currentColor"/>
+  <rect x="16" y="16" width="2" height="2" fill="currentColor"/>
+  
+  <!-- Eyes (2x2 squares) -->
+  <rect x="8" y="9" width="2" height="2" fill="currentColor"/>
+  <rect x="14" y="9" width="2" height="2" fill="currentColor"/>
+  
+  <!-- Mouth (Smile) -->
+  <rect x="8" y="14" width="2" height="1" fill="currentColor"/>
+  <rect x="14" y="14" width="2" height="1" fill="currentColor"/>
+  <rect x="10" y="15" width="4" height="1" fill="currentColor"/>
+</svg>

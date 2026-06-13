@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HidroPlus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="main-bg">
+    <header class="site-header">
+      <div class="nav-left">
+        <img class="logo" src="img/logo.png" alt="HidroPlus" />
+        <img id="btn-home" class="icon" src="img/home.png" alt="Home" style="cursor: pointer;" />
+        <a href="javascript:void(0)" id="btn-nosotros" class="nav-link-icon" title="Nosotros">
+          <img class="icon" src="img/muñecos_menu.png" alt="Nosotros" />
+        </a>
+        <div class="search-bar-container">
+          <div class="search-bar" tabindex="0">
+            <span class="search-icon"></span>
+            <input type="text" class="search-input" placeholder="Buscar..." />
+          </div>
+          <div class="search-dropdown" style="display:none;">
+            <div class="search-option">Productos</div>
+            <div class="search-option">Contacto</div>
+            <div class="search-option">Servicios</div>
+            <div class="search-option">FAQ</div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <img id="btn-whats" class="icon" src="img/whats_menu.png" alt="WhatsApp" style="cursor: pointer;" />
+        <a href="javascript:void(0)" id="btn-dudas" class="nav-link-icon" title="Dudas">
+          <img class="icon" src="img/dudas_menu.png" alt="Dudas" />
+        </a>
+        <img class="icon" src="img/3puntos_menu.png" alt="Más" />
+      </div>
+      <!-- Hamburger Icon for Mobile -->
+      <div class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class="fa fa-bars"></i>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="javascript:void(0)" class="mobile-nav-link" id="mobile-btn-home">Inicio</a>
+      <a href="javascript:void(0)" class="mobile-nav-link" id="mobile-btn-nosotros">Nosotros</a>
+      <a href="javascript:void(0)" class="mobile-nav-link" id="mobile-btn-dudas">Dudas</a>
+      <a href="javascript:void(0)" class="mobile-nav-link" id="mobile-btn-whats">Contacto</a>
+    </div>
+    <main>
+      <div id="view-home">
+        <section class="hero">
+          <div class="hero-bg" style="background-image:url('img/banner.png');"></div>
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <div class="hero-text-block">
+              <h1 class="hero-title montserrat-black">Control</h1>
+              <div class="hero-subtitle">
+                En HidroPlus trabajamos día a día con calidad, pasión y respeto para ofrecerle a nuestros clientes
+                excelencia en nuestros servicios; porque somos <span class="white-text">"Más que un producto, una
+                  solución."</span>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <a href="#contacto" class="btn btn-primary">Call to action</a>
+              <a href="#servicios" class="btn btn-secondary">Secondary</a>
+            </div>
+          </div>
+        </section>
+        <section class="productos-section">
+          <div class="productos-container">
+            <div class="productos-header-side">
+              <h2 class="productos-title">Productos</h2>
+              <p class="productos-subtitle">Soluciones completas en...</p>
+              <div class="brand-image-box">
+                <video class="brand-video" autoplay muted loop playsinline poster="img/video_home.png">
+                  <source src="img/video_home.mp4" type="video/mp4">
+                  Tu navegador no soporta el elemento de video.
+                </video>
+              </div>
+
+              <div class="sabias-que">
+                <h3>Sabias que?</h3>
+                <p>En Hidro Plus no solo vendemos productos, sino que <span class="green-text">desarrollamos
+                    soluciones
+                    integrales en sistemas hidráulicos y de riego?</span></p>
+                <p>Nuestro equipo trabaja con <span class="green-text">experiencia y compromiso</span> en cada
+                  proyecto,
+                  desde instalaciones y mantenimiento hasta la implementación de sistemas eficientes para el manejo
+                  del
+                  agua. Utilizamos materiales de calidad y procesos profesionales para <span
+                    class="green-text">garantizar
+                    resultados</span> confiables, duraderos y adaptados a las necesidades de cada cliente.</p>
+              </div>
+            </div>
+
+            <div class="productos-cards-side">
+              <!-- Card 1: INDUSTRIA -->
+              <div class="producto-card-premium">
+                <div class="card-content">
+                  <div class="card-text">
+                    <h3 class="card-title">INDUSTRIA</h3>
+                    <p class="card-desc">Nuestro compromiso es con el público en general, es por ello que también
+                      brindamos productos de calidad y certificados, aplicados a la industria como son equipos de
+                      enfriamiento, sistemas de filtrado por ósmosis, metalmecánica, líneas de desechos, inyección de
+                      aire, entre otros.</p>
+                    <div class="card-link-wrapper">
+                      <img src="img/icono_industria.png" alt="" class="card-icon" />
+                      <a href="#industria" class="card-link">Productos &rarr;</a>
+                    </div>
+                  </div>
+                  <div class="card-image">
+                    <img src="img/industria.png" alt="Industria" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: AGUA POTABLE -->
+              <div class="producto-card-premium">
+                <div class="card-content">
+                  <div class="card-text">
+                    <h3 class="card-title">AGUA POTABLE</h3>
+                    <p class="card-desc">Para HidroPlus es de gran importancia cumplir con los más altos estándares de
+                      calidad en cada uno de nuestros productos, ya que sabemos lo importante que es llevar agua de
+                      calidad a cada uno de los hogares.</p>
+                    <div class="card-link-wrapper">
+                      <img src="img/icono_potable.png" alt="" class="card-icon" />
+                      <a href="#agua_potable" class="card-link">Productos &rarr;</a>
+                    </div>
+                  </div>
+                  <div class="card-image">
+                    <img src="img/potable.png" alt="Agua Potable" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3: DRENAJE -->
+              <div class="producto-card-premium">
+                <div class="card-content">
+                  <div class="card-text">
+                    <h3 class="card-title">DRENAJE</h3>
+                    <p class="card-desc">HidroPlus trabaja para el progreso de las futuras generaciones, brindando
+                      productos sustentables que ayuden a la calidad de vida de la sociedad; así mismo suministramos
+                      infraestructuras competitivas, lo que ha permitido posicionarnos como líderes en la región.</p>
+                    <div class="card-link-wrapper">
+                      <img src="img/icono_drenaje.png" alt="" class="card-icon" />
+                      <a href="#drenaje" class="card-link">Productos &rarr;</a>
+                    </div>
+                  </div>
+                  <div class="card-image">
+                    <img src="img/drenaje.png" alt="Drenaje" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4: SISTEMA DE POZOS -->
+              <div class="producto-card-premium">
+                <div class="card-content">
+                  <div class="card-text">
+                    <h3 class="card-title">SISTEMA DE POZOS</h3>
+                    <p class="card-desc">HidroPlus crea infraestructura y ofrece instalaciones para the correct
+                      suministro
+                      y abastecimiento de agua potable; así mismo cumple con una de las necesidades primordiales,
+                      llevando
+                      agua de calidad a cada una de las familias.</p>
+                    <div class="card-link-wrapper">
+                      <img src="img/icono_pozos.png" alt="" class="card-icon" />
+                      <a href="#pozos" class="card-link">Productos &rarr;</a>
+                    </div>
+                  </div>
+                  <div class="card-image">
+                    <img src="img/pozo.png" alt="Sistema de Pozos" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <section class="mas-vendido-section">
+            <div class="mv-background" style="background-image: url('img/fondomas_vendido.png');"></div>
+            <div class="mv-container">
+              <div class="mv-title-block">
+                <h2 class="mv-title montserrat-black">MÁS</h2>
+                <h2 class="mv-title montserrat-black">VENDIDO</h2>
+              </div>
+
+              <div class="mv-card">
+                <div class="mv-card-text">
+                  <h3 class="mv-product-name">Nombre Producto</h3>
+                  <p class="mv-product-desc">Lorem ipsum dolor sit amet consectetur adipiscing elit vivamus eros mi
+                    diam
+                    pretium sodales proin iaculis malesuada vehicula erat, mattis suspendisse massa tincidunt
+                    habitasse
+                    himenaeos tempor ultricies conubia platea viverra ad inceptos hic odio metus.</p>
+                  <a href="javascript:void(0)" class="mv-btn-cotizar">
+                    <img src="img/boton_cotizar.png" alt="Cotizar" class="btn-normal" />
+                    <img src="img/cotizar_pulsor.png" alt="Cotizar" class="btn-hover" />
+                  </a>
+                </div>
+                <div class="mv-card-image">
+                  <img src="img/dostubos.png" alt="Producto Estrella" />
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="footer-banner-section">
+          <img src="img/VANER.png" alt="HidroPlus Banner" class="footer-banner-img" />
+        </section>
+
+        <!-- New Section: Somos Fabricantes -->
+        <section class="fabricantes-section">
+          <img src="img/¡Somos_fabricantes....png" alt="¡Somos fabricantes de piezas especiales!"
+            class="fabricantes-img">
+        </section>
+
+        <!-- New Section: Infinite Carousel -->
+        <section class="infinite-carousel-section">
+          <div class="carousel-track">
+            <!-- First set of images -->
+            <div class="carousel-item"><img src="img/pozo.png" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="img/potable.png" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="img/drenaje.png" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="img/industria.png" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="img/dostubos.png" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="img/banner.png" alt="Proyecto"></div>
+            <!-- Duplicated set for infinite loop -->
+            <div class="carousel-item"><img src="img/pozo.png" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="img/potable.png" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="img/drenaje.png" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="img/industria.png" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="img/dostubos.png" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="img/banner.png" alt="Proyecto"></div>
+          </div>
+        </section>
+      </div>
+
+      <div id="view-nosotros" style="display: none;">
+        <!-- New Section: Nosotros (Somos) -->
+        <section id="nosotros" class="somos-section">
+          <div class="somos-bg" style="background-image: url('img/Fondo_somos.png');"></div>
+          <div class="somos-overlay"></div>
+          <div class="somos-content">
+            <img src="img/Somos.png" alt="Somos" class="somos-title-img">
+            <img src="img/Texto_somos.png" alt="HidroPlus" class="somos-logo-img">
+          </div>
+        </section>
+
+        <!-- New Section: Nuestros Logros -->
+        <section class="logros-section">
+          <h2 class="logros-title montserrat-black">¡Nuestros logros!</h2>
+          <div class="logros-container">
+            <div class="logros-card">
+              <img src="img/10+.png" alt="Años de experiencia">
+              <div class="logros-overlay-premium">
+                <div class="counter-box">
+                  <span class="counter" data-target="10">0</span><span class="plus-sign">+</span>
+                </div>
+                <p class="logros-label">Años de experiencia</p>
+              </div>
+            </div>
+            <div class="logros-card">
+              <img src="img/500+.png" alt="Proyectos completados">
+              <div class="logros-overlay-premium">
+                <div class="counter-box">
+                  <span class="counter" data-target="500">0</span><span class="plus-sign">+</span>
+                </div>
+                <p class="logros-label">Proyectos completados</p>
+              </div>
+            </div>
+            <div class="logros-card">
+              <img src="img/100%25.png" alt="Mexicana">
+              <div class="logros-overlay-premium">
+                <div class="counter-box">
+                  <span class="counter" data-target="100">0</span><span class="plus-sign">%</span>
+                </div>
+                <p class="logros-label">Mexicana</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- New Section: Nuestros Valores -->
+        <section class="valores-section">
+          <h2 class="valores-title montserrat-black">Nuestros valores</h2>
+          <p class="valores-subtitle">"Más que un producto, una solución"</p>
+          <div class="valores-container">
+            <img src="img/calidad.png" alt="Calidad" class="valor-img">
+            <img src="img/pasion.png" alt="Pasión" class="valor-img">
+            <img src="img/respeto.png" alt="Respeto" class="valor-img">
+            <img src="img/inovacion.png" alt="Innovación" class="valor-img">
+          </div>
+        </section>
+
+        <!-- New Section: Familia & Mission/Vision -->
+        <section class="familia-section">
+          <h2 class="familia-title">FAMILIA HIDROPLUS</h2>
+
+          <div class="nosotros-grid">
+            <!-- Left: Mission & Vision Native Blocks -->
+            <div class="mv-stack">
+              <div class="mv-native-block">
+                <img src="img/icono_vision.png" alt="Icono Visión" class="mv-icon">
+                <h3 class="mv-block-title">Nuestra Visión</h3>
+                <p class="mv-block-text">Ser la empresa líder en México en soluciones hidráulicas, reconocida por
+                  nuestra calidad, innovación y compromiso con la satisfacción del cliente, expandiendo nuestra
+                  presencia a nivel nacional.</p>
+              </div>
+              <div class="mv-native-block">
+                <img src="img/icono_mision.png" alt="Icono Misión" class="mv-icon">
+                <h3 class="mv-block-title">Nuestra Misión</h3>
+                <p class="mv-block-text">Ofrecer soluciones integrales en sistemas hidráulicos, alcantarillado y riego
+                  con los más altos estándares de calidad, brindando a nuestros clientes productos y servicios
+                  confiables que superen sus expectativas.</p>
+              </div>
+            </div>
+
+            <!-- Horizontal Infinite Carousel (Home Style) -->
+            <div class="nosotros-carousel-container">
+              <div class="nosotros-carousel-track">
+                <img src="img/pozo.png" alt="Proyecto">
+                <img src="img/potable.png" alt="Proyecto">
+                <img src="img/drenaje.png" alt="Proyecto">
+                <img src="img/industria.png" alt="Proyecto">
+                <img src="img/dostubos.png" alt="Proyecto">
+                <img src="img/banner.png" alt="Proyecto">
+                <img src="img/Fondo_somos.png" alt="Proyecto">
+                <img src="img/fondomas_vendido.png" alt="Proyecto">
+                <!-- Duplicate for infinite scroll -->
+                <img src="img/pozo.png" alt="Proyecto">
+                <img src="img/potable.png" alt="Proyecto">
+                <img src="img/drenaje.png" alt="Proyecto">
+                <img src="img/industria.png" alt="Proyecto">
+                <img src="img/dostubos.png" alt="Proyecto">
+                <img src="img/banner.png" alt="Proyecto">
+                <img src="img/Fondo_somos.png" alt="Proyecto">
+                <img src="img/fondomas_vendido.png" alt="Proyecto">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+          <div class="faq-header">
+            <img src="img/PreguntasFrecuentes.png" alt="Preguntas Frecuentes" class="faq-title-img">
+          </div>
+          <div class="faq-grid">
+            <!-- Card 1 -->
+            <div class="faq-card">
+              <div class="faq-card-header">
+                <div class="faq-avatar faq-avatar-pink" style="background-color: #ffe4e6;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="faq-pixel-icon">
+                    <rect x="8" y="4" width="8" height="2" fill="currentColor" />
+                    <rect x="8" y="18" width="8" height="2" fill="currentColor" />
+                    <rect x="4" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="18" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="6" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="6" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="14" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="14" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="10" y="15" width="4" height="1" fill="currentColor" />
+                  </svg>
+                </div>
+                <div class="faq-meta">
+                  <span class="faq-name">¿Cómo elijo la tubería correcta?</span>
+                  <span class="faq-role">Asesoría Técnica</span>
+                </div>
+              </div>
+              <p class="faq-text">Nuestro equipo de expertos te ayudará a seleccionar el material y diámetro ideal
+                según
+                la presión y el tipo de fluido de tu proyecto.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="faq-card">
+              <div class="faq-card-header">
+                <div class="faq-avatar faq-avatar-blue" style="background-color: #e0f2fe;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="faq-pixel-icon">
+                    <rect x="8" y="4" width="8" height="2" fill="currentColor" />
+                    <rect x="8" y="18" width="8" height="2" fill="currentColor" />
+                    <rect x="4" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="18" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="6" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="6" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="14" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="14" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="10" y="15" width="4" height="1" fill="currentColor" />
+                  </svg>
+                </div>
+                <div class="faq-meta">
+                  <span class="faq-name">¿PVC o polietileno?</span>
+                  <span class="faq-role">Materiales</span>
+                </div>
+              </div>
+              <p class="faq-text">Depende de la flexibilidad y resistencia requerida. El PVC es ideal para redes
+                rígidas, mientras que el polietileno ofrece máxima durabilidad en terrenos difíciles.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="faq-card">
+              <div class="faq-card-header">
+                <div class="faq-avatar faq-avatar-green" style="background-color: #f0fdf4;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="faq-pixel-icon">
+                    <rect x="8" y="4" width="8" height="2" fill="currentColor" />
+                    <rect x="8" y="18" width="8" height="2" fill="currentColor" />
+                    <rect x="4" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="18" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="6" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="6" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="14" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="14" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="10" y="15" width="4" height="1" fill="currentColor" />
+                  </svg>
+                </div>
+                <div class="faq-meta">
+                  <span class="faq-name">¿Ofrecen servicios de instalación?</span>
+                  <span class="faq-role">Servicios</span>
+                </div>
+              </div>
+              <p class="faq-text">Sí, contamos con cuadrillas especializadas para la instalación de sistemas
+                hidráulicos, alcantarillado y riego a nivel nacional.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="faq-card">
+              <div class="faq-card-header">
+                <div class="faq-avatar faq-avatar-yellow" style="background-color: #fef9c3;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="faq-pixel-icon">
+                    <rect x="8" y="4" width="8" height="2" fill="currentColor" />
+                    <rect x="8" y="18" width="8" height="2" fill="currentColor" />
+                    <rect x="4" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="18" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="6" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="6" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="14" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="14" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="10" y="15" width="4" height="1" fill="currentColor" />
+                  </svg>
+                </div>
+                <div class="faq-meta">
+                  <span class="faq-name">¿Cómo solicito una cotización?</span>
+                  <span class="faq-role">Ventas</span>
+                </div>
+              </div>
+              <p class="faq-text">Puedes enviarnos tus planos o lista de materiales vía WhatsApp o correo electrónico
+                y
+                recibirás una propuesta formal en menos de 24 horas.</p>
+            </div>
+            <!-- Card 5 -->
+            <div class="faq-card">
+              <div class="faq-card-header">
+                <div class="faq-avatar faq-avatar-purple" style="background-color: #ede9fe;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="faq-pixel-icon">
+                    <rect x="8" y="4" width="8" height="2" fill="currentColor" />
+                    <rect x="8" y="18" width="8" height="2" fill="currentColor" />
+                    <rect x="4" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="18" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="6" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="6" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="14" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="14" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="10" y="15" width="4" height="1" fill="currentColor" />
+                  </svg>
+                </div>
+                <div class="faq-meta">
+                  <span class="faq-name">¿Tienen envíos a todo México?</span>
+                  <span class="faq-role">Logística</span>
+                </div>
+              </div>
+              <p class="faq-text">Contamos con logística propia y alianzas estratégicas para entregar tus productos en
+                cualquier parte de la República Mexicana.</p>
+            </div>
+            <!-- Card 6 -->
+            <div class="faq-card">
+              <div class="faq-card-header">
+                <div class="faq-avatar faq-avatar-orange" style="background-color: #ffedd5;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="faq-pixel-icon">
+                    <rect x="8" y="4" width="8" height="2" fill="currentColor" />
+                    <rect x="8" y="18" width="8" height="2" fill="currentColor" />
+                    <rect x="4" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="18" y="8" width="2" height="8" fill="currentColor" />
+                    <rect x="6" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="6" width="2" height="2" fill="currentColor" />
+                    <rect x="6" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="16" y="16" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="14" y="9" width="2" height="2" fill="currentColor" />
+                    <rect x="8" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="14" y="14" width="2" height="1" fill="currentColor" />
+                    <rect x="10" y="15" width="4" height="1" fill="currentColor" />
+                  </svg>
+                </div>
+                <div class="faq-meta">
+                  <span class="faq-name">¿Qué garantía tienen los productos?</span>
+                  <span class="faq-role">Calidad</span>
+                </div>
+              </div>
+              <p class="faq-text">Todos nuestros productos cumplen con las normas internacionales de calidad y cuentan
+                con garantía directa de fábrica contra defectos.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div id="view-cotizaciones" style="display:none;">
+        <div class="view-cotizaciones-container">
+          <div class="dudas-header">
+            <h1 class="dudas-title Montserrat-black">Solicita una Cotización</h1>
+          </div>
+
+          <div class="cotizacion-main-row">
+            <!-- Main Large Card (200px radius) -->
+            <div class="quote-section-card">
+              <!-- Left: Form Section -->
+              <div class="quote-form-left">
+                <div class="avatar-large">
+                  <img src="img/avatar.png" alt="Usuario" class="avatar-img">
+                </div>
+                <div class="inputs-col-compact">
+                  <div class="input-group-compact">
+                    <label>Nombre:</label>
+                    <input type="text" placeholder="Nombre">
+                  </div>
+                  <div class="input-group-compact">
+                    <label>Correo:</label>
+                    <input type="email" placeholder="Correo@gmail.com">
+                  </div>
+                  <div class="input-group-compact">
+                    <label>Servicio de interés:</label>
+                    <select>
+                      <option>servicio</option>
+                      <option>Tubería</option>
+                      <option>Válvulas</option>
+                    </select>
+                  </div>
+                  <div class="input-group-compact">
+                    <label>Dirección:</label>
+                    <input type="text" placeholder="Dirección">
+                  </div>
+                  <div class="input-group-compact">
+                    <label>Teléfono:</label>
+                    <input type="text" placeholder="(+52) 000 000 0000">
+                  </div>
+                  <button class="btn-enviar-compact">Enviar</button>
+                </div>
+              </div>
+
+              <!-- Right: Mini Collage Section -->
+              <div class="quote-collage-right">
+                <div class="collage-box">
+                  <img src="img/dostubos.png" alt="Tubos de alta calidad" class="collage-item item-1">
+                  <img src="img/drenaje.png" alt="Sistemas de drenaje" class="collage-item item-2">
+                  <img src="img/potable.png" alt="Agua potable" class="collage-item item-3">
+                  <div class="collage-badge">
+                    <img src="img/logo.png" alt="HidroPlus" class="badge-logo">
+                    <span>Expertos en Hidráulica</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="cotizacion-bottom-row">
+            <!-- Recent Quotes -->
+            <div class="cotizacion-card recent-quotes-card">
+              <h3 class="card-subtitle">Cotizaciones recientes</h3>
+              <div class="quotes-timeline-container">
+                <div class="timeline-graphic-wrapper">
+                  <img src="img/circulos.png" alt="Timeline" class="timeline-img">
+                </div>
+                <div class="quotes-list">
+                  <!-- Quote 122 -->
+                  <div class="quote-timeline-item">
+                    <div class="quote-item">
+                      <div class="quote-info">
+                        <h4>Hidroplus-122</h4>
+                        <p class="quote-desc-bold">Descripcion de la cotizacion<br>*Producto<br>*Piezas<br>*Dirección de
+                          envio<br>Total a pagar
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Quote 121 -->
+                  <div class="quote-timeline-item">
+                    <div class="quote-item">
+                      <div class="quote-info">
+                        <h4>Hidroplus-121</h4>
+                        <p class="quote-desc-bold">Descripcion de la cotizacion<br>*Producto<br>*Piezas<br>*Dirección de
+                          envio<br>Total a pagar
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Quote 120 -->
+                  <div class="quote-timeline-item">
+                    <div class="quote-item">
+                      <div class="quote-info">
+                        <h4>Hidroplus-120</h4>
+                        <p class="quote-desc-bold">Descripcion de la cotizacion<br>*Producto<br>*Piezas<br>*Dirección de
+                          envio<br>Total a pagar
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Personalized Attention Stack (Side by Side) -->
+            <div class="attention-stack">
+              <h3 class="card-subtitle">Atencion<br>personalizada</h3>
+
+              <!-- Card 1: Horario -->
+              <div class="attention-item-card">
+                <div class="attention-icon-wrapper">
+                  <i class="far fa-clock"></i>
+                  <span>Horario</span>
+                </div>
+                <div class="attention-details">
+                  <p>Lunes a Viernes: 8:00 - 18:00<br>Sábado: 9:00 - 14:00</p>
+                </div>
+              </div>
+
+              <!-- Card 2: Teléfono -->
+              <div class="attention-item-card">
+                <div class="attention-icon-wrapper">
+                  <i class="fas fa-phone-alt"></i>
+                  <span>Teléfono</span>
+                </div>
+                <div class="attention-details">
+                  <p>+52 (555) 123-4567<br>+52 (555) 890-1234</p>
+                </div>
+              </div>
+
+              <!-- Card 3: Email -->
+              <div class="attention-item-card">
+                <div class="attention-icon-wrapper">
+                  <i class="far fa-envelope"></i>
+                  <span>Email</span>
+                </div>
+                <div class="attention-details">
+                  <p>info@hidroplus.com.mx<br>ventas@hidroplus.com.mx</p>
+                </div>
+              </div>
+
+              <!-- Card 4: Ubicación -->
+              <div class="attention-item-card">
+                <div class="attention-icon-wrapper">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Ubicación</span>
+                </div>
+                <div class="attention-details">
+                  <p>Ciudad de México<br>México, C.P. 01234</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="view-contacto" style="display:none;">
+        <div class="view-contacto-container">
+          <div class="contacto-header">
+            <img src="img/Contacto.png" alt="Contacto" class="contacto-title-img">
+          </div>
+
+          <div class="contacto-main-row">
+            <!-- Left Info Column -->
+            <div class="contacto-info-col">
+              <!-- Email Card -->
+              <div class="attention-item-card">
+                <div class="attention-icon-wrapper">
+                  <img src="img/icono_mensaje.png" alt="Email" class="attention-custom-icon">
+                  <span>Email</span>
+                </div>
+                <div class="attention-details">
+                  <p>info@hidroplus.com.mx<br>ventas@hidroplus.com.mx</p>
+                </div>
+              </div>
+
+              <!-- Phone Card -->
+              <div class="attention-item-card">
+                <div class="attention-icon-wrapper">
+                  <img src="img/icono_cel.png" alt="Teléfono" class="attention-custom-icon">
+                  <span>Teléfono</span>
+                </div>
+                <div class="attention-details">
+                  <p>+52 (555) 123-4567<br>+52 (555) 890-1234</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Form Column -->
+            <div class="contacto-form-col">
+              <!-- Form bubble stands alone here, no payment card -->
+              <div class="quote-form-left">
+                <div class="avatar-large">
+                  <img src="img/avatar.png" alt="Usuario" class="avatar-img">
+                </div>
+                <div class="inputs-col-compact">
+                  <div class="input-group-compact">
+                    <label>Nombre:</label>
+                    <input type="text" placeholder="Nombre">
+                  </div>
+                  <div class="input-group-compact">
+                    <label>Correo:</label>
+                    <input type="email" placeholder="Correo@gmail.com">
+                  </div>
+                  <div class="input-group-compact">
+                    <label>Servicio de interés:</label>
+                    <select>
+                      <option>servicio</option>
+                      <option>Tubería</option>
+                      <option>Válvulas</option>
+                    </select>
+                  </div>
+                  <div class="input-group-compact">
+                    <label>Dirección:</label>
+                    <input type="text" placeholder="Dirección">
+                  </div>
+                  <div class="input-group-compact">
+                    <label>Teléfono:</label>
+                    <input type="text" placeholder="(+52) 000 000 0000">
+                  </div>
+                  <button class="btn-enviar-compact">Enviar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="visitanos-section">
+            <img src="img/¡Visítanos!.png" alt="¡Visítanos!" class="visitanos-title-img">
+            <div class="visitanos-layout-row">
+              <!-- Left: Info Stack -->
+              <div class="visitanos-info-stack">
+                <div class="attention-item-card schedule-card">
+                  <div class="attention-icon-wrapper no-label">
+                    <!-- Figma Clock Icon - Refined viewBox to prevent clipping -->
+                    <img
+                      src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9Ii0zIC0zIDQ2IDQ2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxNy41IiBzdHJva2U9IiMyNzM0OEEiIHN0cm9rZS13aWR0aD0iNSIvPgo8cGF0aCBkPSJNMjAgMTBWMjBIMzAiIHN0cm9rZT0iIzI3MzQ4QSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+"
+                      alt="Horario" class="attention-custom-icon">
+                  </div>
+                  <div class="attention-details">
+                    <p>Lunes a Viernes: 8:00 - 18:00<br>Sábado: 9:00 - 14:00</p>
+                  </div>
+                </div>
+
+                <div class="attention-item-card location-card">
+                  <div class="attention-icon-wrapper no-label">
+                    <!-- Clean Figma Pin Icon -->
+                    <img
+                      src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNMjAgMkMxMy4zNzI2IDIgOCA3LjM3MjU4IDggMTRDOCAyMyAyMCAzOCAyMCAzOEMyMCAzOCAzMiAyMyAzMiAxNEMzMiA3LjM3MjU4IDI2LjYyNzQgMiAyMCAyWk0yMCAxOUMxNy4yMzg2IDE5IDE1IDE2Ljc2MTQgMTUgMTRDMTUgMTEuMjM4NiAxNy4yMzg2IDkgMjAgOUMyMi43NjE0IDkgMjUgMTEuMjM4NiAyNSAxNEMyNSAxNi43NjE0IDIyLjc2MTQgMTkgMjAgMTlaIiBmaWxsPSIjMjczNDhBIi8+Cjwvc3ZnPg=="
+                      alt="Ubicación" class="attention-custom-icon">
+                  </div>
+                  <div class="attention-details">
+                    <p>Ciudad de México<br>México, C.P. 01234</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Real Google Map -->
+              <div class="map-placeholder-card">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15024.498177421113!2d-98.89539396112674!3d19.707323136203533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e8ad46001001%3A0xe67c001001e67c00!2sSan%20Mart%C3%ADn%20de%20las%20Pir%C3%A1mides%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1710125000000!5m2!1ses-419!2smx"
+                  width="100%" height="100%" style="border:0; border-radius: 40px;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="view-catalogo" style="display:none;" class="view-section">
+        <div class="catalogo-header">
+          <div class="catalogo-header-content">
+            <h1 class="catalogo-title montserrat-black" id="catalogo-dynamic-title">Industria</h1>
+            <h2 class="catalogo-subtitle">Catálogo</h2>
+          </div>
+        </div>
+        <div class="catalogo-grid-container">
+          <div class="catalogo-grid" id="catalogo-dynamic-grid">
+            <!-- Dynamic product cards will be injected here -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- New Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-column footer-brand">
+          <img src="img/logo.png" alt="HidroPlus Logo" class="footer-logo">
+          <p class="footer-desc">
+            En HidroPlus trabajamos día a día con calidad, pasión y respeto para ofrecerle a nuestros clientes
+            excelencia en nuestros servicios.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/Hidroplus.THT" target="_blank" class="social-icon" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/hidroplustht/" target="_blank" class="social-icon" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Producto</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Información</h4>
+          <ul class="footer-info">
+            <li><a href="mailto:info@hidroplus.com.mx">info@hidroplus.com.mx</a></li>
+            <li><a href="tel:525551234567">+52 (555) 123-4567</a></li>
+            <li><span>Ciudad de México, México</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 HidroPlus. Todos los derechos reservados. | Empresa 100% mexicana desde 2014</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    const searchBar = document.querySelector('.search-bar');
+    const searchDropdown = document.querySelector('.search-dropdown');
+    const searchInput = document.querySelector('.search-input');
+
+    // Mobile menu toggle logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    if (mobileMenuBtn && mobileNav) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+      });
+    }
+
+    function hideMobileMenu() {
+      if (mobileNav && mobileNav.classList.contains('active')) {
+        mobileNav.classList.remove('active');
+      }
+    }
+
+    function showDropdown() {
+      searchDropdown.style.display = 'block';
+    }
+    function hideDropdown() {
+      searchDropdown.style.display = 'none';
+    }
+
+    searchBar.addEventListener('click', showDropdown);
+    searchInput.addEventListener('focus', showDropdown);
+    searchBar.addEventListener('blur', hideDropdown);
+
+    searchDropdown.addEventListener('mousedown', function (e) {
+      e.preventDefault();
+      if (e.target.classList.contains('search-option')) {
+        searchInput.value = e.target.textContent;
+        hideDropdown();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!searchBar.contains(e.target)) {
+        hideDropdown();
+      }
+    });
+    // View Switching Logic
+    const btnHome = document.getElementById('btn-home');
+    const btnNosotros = document.getElementById('btn-nosotros');
+    const btnDudas = document.getElementById('btn-dudas');
+    const btnWhats = document.getElementById('btn-whats');
+    const viewHome = document.getElementById('view-home');
+    const viewNosotros = document.getElementById('view-nosotros');
+    const viewCotizaciones = document.getElementById('view-cotizaciones');
+    const viewContacto = document.getElementById('view-contacto');
+    const viewCatalogo = document.getElementById('view-catalogo');
+
+    function updateCounters() {
+      const counters = document.querySelectorAll('.counter');
+      let anyActive = false;
+
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = Math.max(1, target / 50);
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          anyActive = true;
+        } else {
+          counter.innerText = target;
+        }
+      });
+
+      if (anyActive) {
+        setTimeout(updateCounters, 30);
+      }
+    }
+
+    function showHome() {
+      viewHome.style.display = 'block';
+      viewNosotros.style.display = 'none';
+      viewCotizaciones.style.display = 'none';
+      viewContacto.style.display = 'none';
+      if (viewCatalogo) viewCatalogo.style.display = 'none';
+      hideMobileMenu();
+      window.scrollTo(0, 0);
+    }
+
+    function showNosotros() {
+      viewHome.style.display = 'none';
+      viewNosotros.style.display = 'block';
+      viewCotizaciones.style.display = 'none';
+      viewContacto.style.display = 'none';
+      if (viewCatalogo) viewCatalogo.style.display = 'none';
+      hideMobileMenu();
+      window.scrollTo(0, 0);
+
+      document.querySelectorAll('.counter').forEach(c => c.innerText = "0");
+      setTimeout(updateCounters, 100);
+    }
+
+    function showCotizaciones() {
+      viewHome.style.display = 'none';
+      viewNosotros.style.display = 'none';
+      viewCotizaciones.style.display = 'block';
+      viewContacto.style.display = 'none';
+      if (viewCatalogo) viewCatalogo.style.display = 'none';
+      hideMobileMenu();
+      window.scrollTo(0, 0);
+    }
+
+
+    function showContacto() {
+      viewHome.style.display = 'none';
+      viewNosotros.style.display = 'none';
+      viewCotizaciones.style.display = 'none';
+      viewContacto.style.display = 'block';
+      if (viewCatalogo) viewCatalogo.style.display = 'none';
+      hideMobileMenu();
+      window.scrollTo(0, 0);
+    }
+
+    function showCatalogo(categoryName) {
+      viewHome.style.display = 'none';
+      viewNosotros.style.display = 'none';
+      viewCotizaciones.style.display = 'none';
+      viewContacto.style.display = 'none';
+      if (viewCatalogo) viewCatalogo.style.display = 'block';
+      window.scrollTo(0, 0);
+
+      const titleEl = document.getElementById('catalogo-dynamic-title');
+      const catNameUpper = categoryName ? categoryName.toUpperCase() : '';
+      if (titleEl) titleEl.textContent = catNameUpper;
+
+      const headerEl = document.querySelector('.catalogo-header');
+      let bannerImg = 'img/Fondo_visionmision.png';
+      let productImg = 'img/dostubos.png';
+
+      if (catNameUpper === 'INDUSTRIA') {
+        bannerImg = 'img/industria.png';
+        productImg = 'img/dostubos.png';
+      } else if (catNameUpper === 'AGUA POTABLE') {
+        bannerImg = 'img/potable.png';
+        productImg = 'img/potable.png';
+      } else if (catNameUpper === 'DRENAJE') {
+        bannerImg = 'img/drenaje.png';
+        productImg = 'img/drenaje.png';
+      } else if (catNameUpper === 'SISTEMA DE POZOS') {
+        bannerImg = 'img/pozo.png';
+        productImg = 'img/pozo.png';
+      }
+
+      if (headerEl) {
+        headerEl.style.backgroundImage = `url('${bannerImg}')`;
+      }
+
+      const gridEl = document.getElementById('catalogo-dynamic-grid');
+      if (gridEl) {
+        gridEl.innerHTML = '';
+
+        let products = [];
+        if (catNameUpper === 'AGUA POTABLE') {
+          products = [
+            { name: 'TUBO ACERO AL CARBON SOLDABLE', img: 'img/AGUA POTABLE/0 TUBO ACERO AL CARBON SOLDABLE.png' },
+            { name: 'TUBO GALVANIZADO', img: 'img/AGUA POTABLE/0 TUBO GALVANIZADO.png' },
+            { name: 'TUBO HCO CED. 40 ABOCINADO', img: 'img/AGUA POTABLE/0 TUBO HCO CED. 40 ABOCINADO.png' },
+            { name: 'TUBO HCO PVC CED. 80', img: 'img/AGUA POTABLE/0 TUBO HCO PVC CED. 80.png' },
+            { name: 'TUBO HCO RD 26 CAMP-ESP', img: 'img/AGUA POTABLE/0 TUBO HCO RD 26 CAMP-ESP.png' },
+            { name: 'TUBO HCO RD 26', img: 'img/AGUA POTABLE/0.1 TUBO HCO RD 26.png' },
+            { name: 'AP VALVULA COMPUERTA V_F INOXIDABLE BRIDADA', img: 'img/AGUA POTABLE/1 AP VALVULA COMPUERTA V_F INOXIDABLE BRIDADA.png' },
+            { name: 'VALVULA ADM-EXP. FO.FO', img: 'img/AGUA POTABLE/1 VALVULA ADM-EXP. FO.FO.png' },
+            { name: 'VALVULA CHECK FO.FO. BRIDADA', img: 'img/AGUA POTABLE/1 VALVULA CHECK FO.FO. BRIDADA.png' },
+            { name: 'VALVULA COMPUERTA V_F RESILENTE BRIDADA', img: 'img/AGUA POTABLE/1 VALVULA COMPUERTA V_F RESILENTE BRIDADA.png' },
+            { name: 'CODO 22 GRADOS GALVANIZADO', img: 'img/AGUA POTABLE/10 CODO 22 GRADOS GALVANIZADO.png' },
+            { name: 'CODO 45 GRADOS GALVANIZADO', img: 'img/AGUA POTABLE/10 CODO 45 GRADOS GALVANIZADO.png' },
+            { name: 'CODO 90 GRADOS GALVANIZADO', img: 'img/AGUA POTABLE/10 CODO 90 GRADOS GALVANIZADO.png' },
+            { name: 'COPLE GALVANIZADO', img: 'img/AGUA POTABLE/10 COPLE GALVANIZADO.png' },
+            { name: 'GUSANO GALVANIZADO', img: 'img/AGUA POTABLE/10 GUSANO GALVANIZADO.png' },
+            { name: 'NIPLE GALVANIZADO', img: 'img/AGUA POTABLE/10 NIPLE GALVANIZADO .png' },
+            { name: 'REDUCCION BUSHING GALVANIZADA', img: 'img/AGUA POTABLE/10 REDUCCION BUSHING GALVANIZADA.png' },
+            { name: 'REDUCCION CAMPANA GALVANIZADA', img: 'img/AGUA POTABLE/10 REDUCCION CAMPANA GALVANIZADA.png' },
+            { name: 'TAPON HEMBRA GALVANIZADA', img: 'img/AGUA POTABLE/10 TAPON HEMBRA GALVANIZADA.png' },
+            { name: 'TAPON MACHO GALVA', img: 'img/AGUA POTABLE/10 TAPON MACHO GALVA.png' },
+            { name: 'TEE GALVANIZADA', img: 'img/AGUA POTABLE/10 TEE GALVANIZADA.png' },
+            { name: 'TUERCA UNION GALVANIZADA', img: 'img/AGUA POTABLE/10 TUERCA UNION GALVANIZADA.png', carouselImgs: ["img/AGUA POTABLE/10.1 TUERCA UNION GALVANIZADA.png"] },
+            { name: 'YEE GALVANIZADA', img: 'img/AGUA POTABLE/10 YEE GALVANIZADA.png' },
+            { name: 'VALVULA COMPUERTA LATON', img: 'img/AGUA POTABLE/11 VALVULA COMPUERTA LATON.png' },
+            { name: 'VALVULA ESFERA LATON', img: 'img/AGUA POTABLE/11 VALVULA ESFERA LATON.png' },
+            { name: 'VALVULA PVC CEMENTAR CED. 40', img: 'img/AGUA POTABLE/12 VALVULA PVC CEMENTAR CED. 40.png' },
+            { name: 'ADAPTADOR CAMPANA HEMBRA RD 26', img: 'img/AGUA POTABLE/2 ADAPTADOR CAMPANA HEMBRA RD 26.png' },
+            { name: 'ADAPTADOR CAMPANA MACHO RD 26', img: 'img/AGUA POTABLE/2 ADAPTADOR CAMPANA MACHO RD 26.png' },
+            { name: 'ADAPTADOR MACHO ESPIGA RD 26', img: 'img/AGUA POTABLE/2 ADAPTADOR MACHO ESPIGA RD 26.png' },
+            { name: 'CAMPANA RD 26', img: 'img/AGUA POTABLE/2 CAMPANA RD 26.png' },
+            { name: 'CODO HCO RD 26 22 GRADOS CAMP-ESP', img: 'img/AGUA POTABLE/2 CODO HCO RD 26 22 GRADOS CAMP-ESP.png' },
+            { name: 'CODO HCO RD 26 45 GRADOS CAMP-ESP', img: 'img/AGUA POTABLE/2 CODO HCO RD 26 45 GRADOS CAMP-ESP.png' },
+            { name: 'CODO HCO RD 26 90 GRADOS CAMP-ESP', img: 'img/AGUA POTABLE/2 CODO HCO RD 26 90 GRADOS CAMP-ESP.png' },
+            { name: 'COPLE REPARACION RD 26', img: 'img/AGUA POTABLE/2 COPLE REPARACION RD 26.png' },
+            { name: 'EMPAQUE BRIDA NEOPRENO', img: 'img/AGUA POTABLE/2 EMPAQUE BRIDA NEOPRENO.png' },
+            { name: 'EMPAQUE BRIDA PLOMO', img: 'img/AGUA POTABLE/2 EMPAQUE BRIDA PLOMO.png' },
+            { name: 'EXTREMIDAD ESPIGA RD 26', img: 'img/AGUA POTABLE/2 EXTREMIDAD ESPIGA RD 26.png' },
+            { name: 'REDUCCION CAMPANA RD 26', img: 'img/AGUA POTABLE/2 REDUCCION CAMPANA RD 26.png' },
+            { name: 'TAPA CEMENTAR RD 26', img: 'img/AGUA POTABLE/2 TAPA CEMENTAR RD 26.png' },
+            { name: 'TAPON CAMPANA RD 26', img: 'img/AGUA POTABLE/2 TAPON CAMPANA RD 26.png' },
+            { name: 'TAPON ESPIGA RD 26', img: 'img/AGUA POTABLE/2 TAPON ESPIGA RD 26.png' },
+            { name: 'TEE RD 26 REDUCIDA', img: 'img/AGUA POTABLE/2 TEE RD 26 REDUCIDA.png' },
+            { name: 'TORNILLO HEXAGONAL C_TUERCA', img: 'img/AGUA POTABLE/2 TORNILLO HEXAGONAL C_TUERCA.png' },
+            { name: 'CAJA PARA HIDROTOMA PEAD', img: 'img/AGUA POTABLE/3 CAJA PARA HIDROTOMA PEAD.png' },
+            { name: 'CONTRA MARCO ACERO 90X4', img: 'img/AGUA POTABLE/3 CONTRA MARCO ACERO 90X4.png' },
+            { name: 'MARCO CON TAPA PEAD', img: 'img/AGUA POTABLE/3 MARCO CON TAPA PEAD.png' },
+            { name: 'ABRAZADERA MUNICIPAL FO.FO', img: 'img/AGUA POTABLE/5 ABRAZADERA MUNICIPAL FO.FO.png' },
+            { name: 'ABRAZADERA DE BRONCE', img: 'img/AGUA POTABLE/5.0 ABRAZADERA DE BRONCE.png' },
+            { name: 'ABRAZADERA BRONCE', img: 'img/AGUA POTABLE/5.1 ABRAZADERA BRONCE.png' },
+            { name: 'ABRAZADERA SIN FIN', img: 'img/AGUA POTABLE/6 ABRAZADERA SIN FIN.png' },
+            { name: 'ADAPTADOR YUCATAN HEMBRA BRONCE', img: 'img/AGUA POTABLE/6 ADAPTADOR YUCATAN HEMBRA BRONCE.png' },
+            { name: 'ADAPTADOR YUCATAN MACHO BRONCE', img: 'img/AGUA POTABLE/6 ADAPTADOR YUCATAN MACHO BRONCE.png' },
+            { name: 'VALVULA DE SEGURIDAD MAGNETICA C_MANERAL', img: 'img/AGUA POTABLE/6 VALVULA DE SEGURIDAD MAGNETICA C_MANERAL.png' },
+            { name: 'BOTA LARGA FO.FO', img: 'img/AGUA POTABLE/7 BOTA LARGA FO.FO.png', carouselImgs: ["img/AGUA POTABLE/7.1 BOTA LARGA FO.FO.png","img/AGUA POTABLE/8 BOTA LARGA FO.FO.png"] },
+            { name: 'BOTA CORTA FO.FO', img: 'img/AGUA POTABLE/8.1 BOTA CORTA FO.FO.png' },
+            { name: 'BRIDA ACERO AL CARBON SOLDABLE', img: 'img/AGUA POTABLE/9 BRIDA ACERO AL CARBON SOLDABLE.png' },
+            { name: 'BRIDA CIEGA ACERO AL CARBON', img: 'img/AGUA POTABLE/9 BRIDA CIEGA ACERO AL CARBON.png' },
+            { name: 'EMPAQUE PARA JUNTA GIUBAULT', img: 'img/AGUA POTABLE/CARRUSEL AGUA/1 EMPAQUE PARA JUNTA GIUBAULT.png' },
+            { name: 'JUNTA GIUBAULT', img: 'img/AGUA POTABLE/CARRUSEL AGUA/1 JUNTA GIUBAULT(1).png', carouselImgs: ["img/AGUA POTABLE/CARRUSEL AGUA/1 JUNTA GIUBAULT(2).png","img/AGUA POTABLE/CARRUSEL AGUA/1 JUNTA GIUBAULT.png"] },
+            { name: 'HIDROTOMA INGLES PVC C_ACCESORIOS', img: 'img/AGUA POTABLE/CARRUSEL AGUA/2 HIDROTOMA INGLES PVC C_ACCESORIOS(1).png', carouselImgs: ["img/AGUA POTABLE/CARRUSEL AGUA/2 HIDROTOMA INGLES PVC C_ACCESORIOS.png"] },
+            { name: 'HIDROTOMA INGLES PVC', img: 'img/AGUA POTABLE/CARRUSEL AGUA/2 HIDROTOMA INGLES PVC.png' },
+            { name: 'HIDROTOMA PVC METRICA', img: 'img/AGUA POTABLE/CARRUSEL AGUA/3 HIDROTOMA PVC METRICA(1).png', carouselImgs: ["img/AGUA POTABLE/CARRUSEL AGUA/3 HIDROTOMA PVC METRICA.png"] }
+          ];
+        } else if (catNameUpper === 'DRENAJE') {
+          products = [
+            { name: 'DRE TUBO CORRUGADO ADS', img: 'img/DRENAJE/1 DRE TUBO CORRUGADO ADS.png' },
+            { name: 'TUBO SANITARIO PVC', img: 'img/DRENAJE/1 TUBO SANITARIO PVC.png' },
+            { name: 'BROCA PEAD TIPO PESADO', img: 'img/DRENAJE/2 BROCA PEAD TIPO PESADO.png' },
+            { name: 'CAMPANA ABOCINADA PARA CORRUGADO', img: 'img/DRENAJE/2 CAMPANA ABOCINADA PARA CORRUGADO.png' },
+            { name: 'CODO DE LINEA PARA CORRUGADO 45 GRADOS', img: 'img/DRENAJE/2 CODO DE LINEA PARA CORRUGADO 45 GRADOS.png' },
+            { name: 'CODO DE LINEA PARA CORRUGADO 90 GRADOS', img: 'img/DRENAJE/2 CODO DE LINEA PARA CORRUGADO 90 GRADOS.png' },
+            { name: 'TEE WYE PARA CORRUGADO', img: 'img/DRENAJE/2 TEE WYE PARA CORRUGADO.png' },
+            { name: 'CODO PVC INYECTADO ALCANTARILLADO 45 GRADOS', img: 'img/DRENAJE/3 CODO PVC INYECTADO ALCANTARILLADO 45 GRADOS.png' },
+            { name: 'SILLETA PVC INYECTADA ALCANTARILLADA', img: 'img/DRENAJE/3 SILLETA PVC INYECTADA ALCANTARILLADA.png' },
+            { name: 'VALVULA CHECK ALCANTARILLADA', img: 'img/DRENAJE/3 VALVULA CHECK ALCANTARILLADA.png' },
+            { name: 'BROCAL POLICONCRETO CIEGO', img: 'img/DRENAJE/4 BROCAL POLICONCRETO CIEGO.png' },
+            { name: 'CODO PVC SANITARIO 45 GRADOS', img: 'img/DRENAJE/5 CODO PVC SANITARIO 45 GRADOS.png' },
+            { name: 'COPLE PVC SANITARIO', img: 'img/DRENAJE/5 COPLE PVC SANITARIO.png' },
+            { name: 'TAPA INSERCION PVC SANITARIA', img: 'img/DRENAJE/5 TAPA INSERCION PVC SANITARIA.png' },
+            { name: 'TEE PVC SANITARIA', img: 'img/DRENAJE/5 TEE PVC SANITARIA.png' },
+            { name: 'YEE PVC SANITARIA', img: 'img/DRENAJE/5 YEE PVC SANITARIA.png' },
+            { name: 'BROCA SIERRA', img: 'img/DRENAJE/CARRUSEL/6 BROCA SIERRA.png', carouselImgs: ["img/DRENAJE/CARRUSEL/7 BROCA SIERRA.png"] }
+          ];
+        } else if (catNameUpper === 'INDUSTRIA') {
+          products = [
+            { name: 'TUBO ACERO AL CARBON SOLDABLE', img: 'img/INDUSTRIA/1 TUBO ACERO AL CARBON SOLDABLE.png' },
+            { name: 'TUBO GALVANIZADO', img: 'img/INDUSTRIA/1 TUBO GALVANIZADO.png' },
+            { name: 'TUBO HCO CED. 40 ABOCINADO', img: 'img/INDUSTRIA/1 TUBO HCO CED. 40 ABOCINADO.png' },
+            { name: 'TUBO HCO PVC CED. 80', img: 'img/INDUSTRIA/1 TUBO HCO PVC CED. 80.png' },
+            { name: 'CODO PVC CEMENTAR 45 GRADOS', img: 'img/INDUSTRIA/2 CODO PVC CEMENTAR 45 GRADOS .png' },
+            { name: 'CODO PVC CEMENTAR 90 GRADOS', img: 'img/INDUSTRIA/2 CODO PVC CEMENTAR 90 GRADOS.png' },
+            { name: 'COPLE PVC CEMENTAR', img: 'img/INDUSTRIA/2 COPLE PVC CEMENTAR.png' },
+            { name: 'REDUCCION PVC CEMENTAR', img: 'img/INDUSTRIA/2 REDUCCION PVC CEMENTAR.png' },
+            { name: 'TEE PVC CEMENTAR', img: 'img/INDUSTRIA/2 TEE PVC CEMENTAR .png' },
+            { name: 'YEE PVC CEMENTAR', img: 'img/INDUSTRIA/2 YEE PVC CEMENTAR.png' },
+            { name: 'SILLETA PVC CEMENTAR', img: 'img/INDUSTRIA/2.1 SILLETA PVC CEMENTAR(1).png', carouselImgs: ["img/INDUSTRIA/2.1 SILLETA PVC CEMENTAR.png"] },
+            { name: 'CODO 22 GRADOS GALVANIZADO', img: 'img/INDUSTRIA/3 CODO 22 GRADOS GALVANIZADO.png' },
+            { name: 'CODO 45 GRADOS GALVANIZADO', img: 'img/INDUSTRIA/3 CODO 45 GRADOS GALVANIZADO.png' },
+            { name: 'CODO 90 GRADOS GALVANIZADO', img: 'img/INDUSTRIA/3 CODO 90 GRADOS GALVANIZADO.png' },
+            { name: 'COPLE ACERO AL CARBON ROSCABLE', img: 'img/INDUSTRIA/3 COPLE ACERO AL CARBON ROSCABLE.png' },
+            { name: 'COPLE GALVANIZADO', img: 'img/INDUSTRIA/3 COPLE GALVANIZADO.png' },
+            { name: 'GUSANO GALVANIZADO', img: 'img/INDUSTRIA/3 GUSANO GALVANIZADO.png' },
+            { name: 'NIPLE GALVANIZADO', img: 'img/INDUSTRIA/3 NIPLE GALVANIZADO .png' },
+            { name: 'REDUCCION BUSHING GALVANIZADA', img: 'img/INDUSTRIA/3 REDUCCION BUSHING GALVANIZADA.png' },
+            { name: 'REDUCCION CAMPANA GALVANIZADA', img: 'img/INDUSTRIA/3 REDUCCION CAMPANA GALVANIZADA.png' },
+            { name: 'TAPON HEMBRA GALVANIZADA', img: 'img/INDUSTRIA/3 TAPON HEMBRA GALVANIZADA.png' },
+            { name: 'TAPON MACHO GALVA', img: 'img/INDUSTRIA/3 TAPON MACHO GALVA.png' },
+            { name: 'TEE ACERO AL CARBON SOLDABLE', img: 'img/INDUSTRIA/3 TEE ACERO AL CARBON SOLDABLE.png' },
+            { name: 'TEE GALVANIZADA', img: 'img/INDUSTRIA/3 TEE GALVANIZADA.png' },
+            { name: 'TUERCA UNION GALVANIZADA', img: 'img/INDUSTRIA/3 TUERCA UNION GALVANIZADA(1).png', carouselImgs: ["img/INDUSTRIA/3 TUERCA UNION GALVANIZADA.png"] },
+            { name: 'YEE GALVANIZADA', img: 'img/INDUSTRIA/3 YEE GALVANIZADA.png' },
+            { name: 'CODO 45 GRADOS ACERO AL CARBON SOLDABLE', img: 'img/INDUSTRIA/4 CODO 45 GRADOS ACERO AL CARBON SOLDABLE.png' },
+            { name: 'EMPAQUE BRIDA NEOPRENO', img: 'img/INDUSTRIA/4 EMPAQUE BRIDA NEOPRENO.png' },
+            { name: 'REDUCCION ACERO SOLDABLE', img: 'img/INDUSTRIA/4 REDUCCION ACERO SOLDABLE.png' },
+            { name: 'BRIDA ACERO AL CARBON ROSCABLE', img: 'img/INDUSTRIA/5 BRIDA ACERO AL CARBON ROSCABLE.png' },
+            { name: 'BRIDA ACERO AL CARBON SOLDABLE', img: 'img/INDUSTRIA/5 BRIDA ACERO AL CARBON SOLDABLE.png' },
+            { name: 'BRIDA CIEGA ACERO AL CARBON', img: 'img/INDUSTRIA/5 BRIDA CIEGA ACERO AL CARBON.png' },
+            { name: 'VALVULA PVC CEMENTAR CED. 40', img: 'img/INDUSTRIA/5 VALVULA PVC CEMENTAR CED. 40.png' },
+            { name: 'MANOMETRO DE GLICERINA', img: 'img/INDUSTRIA/6 MANOMETRO DE GLICERINA.png' }
+          ];
+        } else if (catNameUpper === 'SISTEMA DE POZOS') {
+          products = [
+            { name: 'TORNILLO HEXAGONAL C_TUERCA', img: 'img/SISTEMA DE POZOS/2 TORNILLO HEXAGONAL C_TUERCA.png' },
+            { name: 'AP MANOMETRO DE GLICERINA', img: 'img/SISTEMA DE POZOS/AP MANOMETRO DE GLICERINA.png' }
+          ];
+        } else {
+          // Fallback just in case
+          products = [
+            { name: 'Producto Especial 1', img: 'img/dostubos.png' },
+            { name: 'Producto Especial 2', img: 'img/industria.png' },
+            { name: 'Producto Especial 3', img: 'img/pozo.png' },
+            { name: 'Producto Especial 4', img: 'img/drenaje.png' },
+            { name: 'Producto Especial 5', img: 'img/potable.png' },
+            { name: 'Producto Especial 6', img: 'img/dostubos.png' }
+          ];
+        }
+
+        products.forEach((prod) => {
+          let imageHTML = `<img src="${prod.img}" alt="${prod.name}" class="catalogo-card-img active" />`;
+          if (prod.carouselImgs && prod.carouselImgs.length > 0) {
+            prod.carouselImgs.forEach((cImg) => {
+              imageHTML += `<img src="${cImg}" alt="${prod.name} secundario" class="catalogo-card-img hidden" />`;
+            });
+            imageHTML += `
+              <button class="carousel-arrow left" onclick="toggleProductImage(event, this, -1)">&#10094;</button>
+              <button class="carousel-arrow right" onclick="toggleProductImage(event, this, 1)">&#10095;</button>
+            `;
+          } else if (prod.carouselImg) {
+            imageHTML += `
+              <img src="${prod.carouselImg}" alt="${prod.name} secundario" class="catalogo-card-img hidden" />
+              <button class="carousel-arrow left" onclick="toggleProductImage(event, this, -1)">&#10094;</button>
+              <button class="carousel-arrow right" onclick="toggleProductImage(event, this, 1)">&#10095;</button>
+            `;
+          }
+
+          gridEl.innerHTML += `
+            <div class="catalogo-card">
+              <div class="catalogo-card-image-wrapper">
+                ${imageHTML}
+              </div>
+              <div class="catalogo-card-info">
+                <h3>${prod.name}</h3>
+                <button class="btn-cotizar-catalogo">Cotizar</button>
+              </div>
+            </div>
+          `;
+        });
+      }
+    }
+
+    if (btnHome) btnHome.addEventListener('click', showHome);
+    if (btnNosotros) btnNosotros.addEventListener('click', showNosotros);
+    if (btnDudas) btnDudas.addEventListener('click', showCotizaciones);
+    if (btnWhats) btnWhats.addEventListener('click', showContacto);
+
+    // Mobile buttons bindings
+    const mBtnHome = document.getElementById('mobile-btn-home');
+    const mBtnNosotros = document.getElementById('mobile-btn-nosotros');
+    const mBtnDudas = document.getElementById('mobile-btn-dudas');
+    const mBtnWhats = document.getElementById('mobile-btn-whats');
+
+    if (mBtnHome) mBtnHome.addEventListener('click', showHome);
+    if (mBtnNosotros) mBtnNosotros.addEventListener('click', showNosotros);
+    if (mBtnDudas) mBtnDudas.addEventListener('click', showCotizaciones);
+    if (mBtnWhats) mBtnWhats.addEventListener('click', showContacto);
+
+    // Link product buttons in home to the catalogue view
+    document.querySelectorAll('.card-link').forEach(link => {
+      link.addEventListener('click', function (e) {
+        if (this.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+          const categoryTitle = this.closest('.card-text').querySelector('.card-title');
+          if (categoryTitle) {
+            showCatalogo(categoryTitle.textContent);
+          }
+        }
+      });
+    });
+
+    // Initial check for hash
+    if (window.location.hash === '#nosotros') {
+      showNosotros();
+    }
+
+    // Universal Direct redirection to Quote Section for any element containing "Cotizar" or relevant class
+    document.addEventListener('click', function (e) {
+      const target = e.target;
+      const isCotizar = target.closest('.btn-cotizar-catalogo') || 
+                        target.closest('.mv-btn-cotizar') || 
+                        (target.textContent && target.textContent.trim().toLowerCase() === 'cotizar');
+
+      if (isCotizar) {
+        // Prevent default navigation if it's an anchor tag
+        const link = target.tagName === 'A' ? target : target.closest('a');
+        if (link) {
+          e.preventDefault();
+        }
+        showCotizaciones();
+      }
+    });
+    window.toggleProductImage = function(event, btn, direction) {
+      event.preventDefault();
+      const wrapper = btn.closest('.catalogo-card-image-wrapper');
+      const images = Array.from(wrapper.querySelectorAll('.catalogo-card-img'));
+      let activeIndex = images.findIndex(img => img.classList.contains('active'));
+      
+      if(activeIndex !== -1) {
+          images[activeIndex].classList.remove('active');
+          images[activeIndex].classList.add('hidden');
+      } else {
+          activeIndex = 0;
+      }
+      
+      activeIndex += direction;
+      if (activeIndex >= images.length) activeIndex = 0;
+      if (activeIndex < 0) activeIndex = images.length - 1;
+      
+      images[activeIndex].classList.remove('hidden');
+      images[activeIndex].classList.add('active');
+    };
+  </script>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/522462226280" class="whats-floating-btn" target="_blank" title="Contáctanos por WhatsApp">
+      <i class="fab fa-whatsapp whats-float-icon-fa"></i>
+      <span class="whats-float-tooltip">¿Necesitas ayuda?</span>
+    </a>
+
+  </body>
+</html>
